@@ -39,3 +39,41 @@ ct_m = []
 for i in range(0,len(ciphertext),4):
     ct_m.append([alphabet.index(ciphertext[i]),alphabet.index(ciphertext[i+1]),alphabet.index(ciphertext[i+2]),alphabet.index(ciphertext[i+3])])
 ```
+Now... we can start decryption with the standard Hill Cipher method
+```py
+dec = ""
+for block in ct_m:
+    temp = []
+    for i in block:
+        temp.append([i]) # has to be a 4x1 matrix not a 1x4 matrix
+    temp_m = Matrix(temp)
+    decs = m_inv * temp_m
+    for i in decs:
+        for a in i:
+            dec += alphabet[a]
+print(dec[:-1])
+```
+Which gives us the flag!: `flag{j4ck_4nd_ji11}`
+
+Full Code:
+```py
+alphabet = 'vxotbj9a8yqp7n5mh1rzwcd6gfiks3uel240{}_'
+m = Matrix(Integers(len(alphabet)), [[16,31,32,32],[2,3,16,31],[18,31,15,16],[28,21,3,25]]) # Integers(39) allows for all calculations under mod 39
+m_inv = pow(m,-1) # Inverting the matrix
+ciphertext = 'jkwb44pg26teiu}78uu{'
+ct_m = []
+for i in range(0,len(ciphertext),4):
+    ct_m.append([alphabet.index(ciphertext[i]),alphabet.index(ciphertext[i+1]),alphabet.index(ciphertext[i+2]),alphabet.index(ciphertext[i+3])])
+
+dec = ""
+for block in ct_m:
+    temp = []
+    for i in block:
+        temp.append([i]) # has to be a 4x1 matrix not a 1x4 matrix
+    temp_m = Matrix(temp)
+    decs = m_inv * temp_m
+    for i in decs:
+        for a in i:
+            dec += alphabet[a]
+print(dec[:-1])
+```
