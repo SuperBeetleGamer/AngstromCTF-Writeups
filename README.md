@@ -32,4 +32,10 @@ This gives us the output Matrix of m_inv:
 [38 32 34 21]
 ```
 Great! Now its just standard `Hill Cipher` decryption! Since the ciphertext is 20 chars long, we can split them up into 5 blocks of 4 chars each. Each block of 4 chars can be decrypted seperately.
-First
+First we have to get their alphabet index values.
+```py
+ciphertext = 'jkwb44pg26teiu}78uu{'
+ct_m = []
+for i in range(0,len(ciphertext),4):
+    ct_m.append([alphabet.index(ciphertext[i]),alphabet.index(ciphertext[i+1]),alphabet.index(ciphertext[i+2]),alphabet.index(ciphertext[i+3])])
+```
