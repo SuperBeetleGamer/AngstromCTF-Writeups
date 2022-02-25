@@ -1,4 +1,4 @@
-# mhsCTF2022-Green2-Writeup
+# mhsCTF2022 Green2 Writeup
 
 `Yo listen up here's a story. About a little guy who lives in a green world. (alphabet = vxotbj9a8yqp7n5mh1rzwcd6gfiks3uel240{}_; ciphertext = jkwb44pg26teiu}78uu{)`
 ![chall](https://user-images.githubusercontent.com/81491665/155752200-0656cb01-2efb-4f6f-b698-aacc50d872c1.png)
