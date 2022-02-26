@@ -1,8 +1,10 @@
 # mhsCTF2022 Green2 Writeup
 
+## Chall Description ##
 `Yo listen up here's a story. About a little guy who lives in a green world. (alphabet = vxotbj9a8yqp7n5mh1rzwcd6gfiks3uel240{}_; ciphertext = jkwb44pg26teiu}78uu{)`
 ![chall](https://user-images.githubusercontent.com/81491665/155752200-0656cb01-2efb-4f6f-b698-aacc50d872c1.png)
 
+## Solve ##
 At the start of the challenge we are given an alphabet, a ciphertext, and what appears to be a 4x4 grid of different shades of green. Same as Green 1, we [extracted the green RGB value](https://imagecolorpicker.com/en) of each square on the 4x4 grid. This left us with these values:
 ```
 [16 31 32 32]
@@ -53,6 +55,7 @@ for block in ct_m:
             dec += alphabet[a]
 print(dec[:-1])
 ```
+## Flag ##
 Which gives us the flag!: `flag{j4ck_4nd_ji11}`
 
 Full Code:
